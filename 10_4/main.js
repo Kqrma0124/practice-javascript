@@ -16,3 +16,19 @@
 
 }
 
+    const = monthSlect = document.getElementById("month2");
+
+    monthSelectlist()
+
+    
+    function monthSelectlist(){
+    
+    for(let i=1; i<=12;i++) {
+    
+    let option =document.createElement('option');
+    option.value = i;
+    option.textContent = i + 月;
+    monthSlect.appendChild(option);
+    }
+}
+
