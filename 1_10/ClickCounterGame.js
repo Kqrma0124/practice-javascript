@@ -34,4 +34,12 @@ function ClickCounterGame(){
     gameContainer.appendChild(button2);    
     gameContainer.appendChild(button3);  
     gameContainer.appendChild(counter);
+
+    if(counter<=100){
+
+        button2onclick
+    
+    }
+
 }
+ClickCounterGame()
