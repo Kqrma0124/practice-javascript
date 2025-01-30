@@ -90,11 +90,24 @@ function NUmberGuessGame(){
         
         else{
             message.textContent="小さい"
+            
 
         }
-
+        countDisplay.textContent= `試行回数: ${count}`;
     })
+
     gameContainer.appendChild(button);
+
+    let count=0;
+
+    const countDisplay=document.createElement("countDisplay");
+    countDisplay.textContent= `試行回数: ${count}`;    
+    gameContainer.appendChild(countDisplay);
+
+    //``「バッククォート」で囲うと特殊な文字列だと認識できる
+    //今回であれば＄{}で囲われている部分をプログラムの中の変数として判別する
+    //countDisplay.textContent= `試行回数: ${count}`;クリックイベントに追加
+    
 
 }
     
