@@ -1,68 +1,74 @@
-// function ClickCounterGame(){
-//     let count = 0;
-//     const gameContainer=document.getElementById("game-container");
+const gameSelector=document.getElementById("game-select")
+const gameContainer=document.getElementById("game-container")
 
+gameSelector.addEventListener('change',function(){
+    gameContainer.innerHTML='';
+    switch(gameSelector.value){
+        case'number-guess':
+        NUmberGuessGame();
+        break;
 
-// let button1 = document.createElement("button");
-// button1.textContent="+1ボタン" 
-
-// let button2 = document.createElement("button")
-// button2.textContent="10ボタン"
-
-// let button3 = document.createElement("button")
-// button3.textContent="リセット"
-
-// let counter = document.createElement("p");
-// counter.textContent = count;
-
-// button1.addEventListener("click",function(){
-
-//     if(count<100){
-
-//     count++;
-   
-// }
-   
-//     counter.textContent=count;
-
-// })
-
-// button2.addEventListener("click",function(){
-
-//     if(count<=90){
+        case'clicker':
+        ClickCounterGame()
+        break;
+    }
     
-//         count = count + 10;
-//     }
-//         counter.textContent=count;
+});
+
+
+ function ClickCounterGame(){
+     let count = 0;
+     const gameContainer=document.getElementById("game-container");
+
+    let button1 = document.createElement("button");
+    button1.textContent="+1ボタン" 
+
+    let button2 = document.createElement("button")
+    button2.textContent="10ボタン"
+
+    let button3 = document.createElement("button")
+    button3.textContent="リセット"
+
+    let counter = document.createElement("p");
+    counter.textContent = count;
+
+    button1.addEventListener("click",function(){
+     if(count<100){
+     count++;
+ 
+     }
+
+         counter.textContent=count;
+     })
+     button2.addEventListener("click",function(){
+         if(count<=90){
+        
+             count = count + 10;
+         }
+             counter.textContent=count;
+     
+     })
+     button3.addEventListener("click",function(){
+       count = 0;
+       counter.textContent=count;
+     })
+     gameContainer.appendChild(button1);
+     gameContainer.appendChild(button2);
+     gameContainer.appendChild(button3);
+     gameContainer.appendChild(counter);
+     }
     
-// })
-
-// button3.addEventListener("click",function(){
 
 
-//   count = 0;
-//   counter.textContent=count;
 
-// })
 
-// gameContainer.appendChild(button1);
-// gameContainer.appendChild(button2);
-// gameContainer.appendChild(button3);
-// gameContainer.appendChild(counter);
-
-// }
-
-// ClickCounterGame();
-
-function NUmberGuessGame(){
+    function NUmberGuessGame(){
     const gameContainer = document.getElementById("game-container");
 
     const ramdomNumber = Math.floor(Math.random()*100)+1;
 
     let message =document.createElement("p");
 
-    
-    
     let input = document.createElement("input");
     
     input.type = 'number';
@@ -90,9 +96,8 @@ function NUmberGuessGame(){
         
         else{
             message.textContent="小さい"
-            
-
         }
+        count++;
         countDisplay.textContent= `試行回数: ${count}`;
     })
 
@@ -108,9 +113,7 @@ function NUmberGuessGame(){
     //今回であれば＄{}で囲われている部分をプログラムの中の変数として判別する
     //countDisplay.textContent= `試行回数: ${count}`;クリックイベントに追加
     
-
 }
-    
 
 
-NUmberGuessGame()
+
