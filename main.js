@@ -1,6 +1,25 @@
 const gameSelector=document.getElementById("game-select")
 const gameContainer=document.getElementById("game-container")
 
+const select =document.createElement("select");
+select.name="games";
+select.id="game-select";
+const options=[
+    {value:"",text:"ゲームを選択してください"},
+    {value:"clicker",text:"クリッカーゲーム"},
+    {value:"number-guess",text:"数当てゲーム"}
+];
+
+options.forEach(optionDate=>{
+    const option=document.createElement("option");
+    option.value=optionDate.value;
+    option.textContent=optionDate.text;
+    select.appendChild(option)
+})
+gameSelector.appendChild(select)
+
+
+
 gameSelector.addEventListener('change',function(){
     gameContainer.innerHTML='';
     switch(gameSelector.value){
@@ -37,25 +56,27 @@ gameSelector.addEventListener('change',function(){
      count++;
  
      }
-
          counter.textContent=count;
      })
+     
      button2.addEventListener("click",function(){
          if(count<=90){
         
              count = count + 10;
          }
              counter.textContent=count;
-     
      })
+
      button3.addEventListener("click",function(){
        count = 0;
        counter.textContent=count;
      })
+
      gameContainer.appendChild(button1);
      gameContainer.appendChild(button2);
      gameContainer.appendChild(button3);
      gameContainer.appendChild(counter);
+
      }
     
 
@@ -88,13 +109,12 @@ gameSelector.addEventListener('change',function(){
 
         if(ramdomNumber == val){
             message.textContent="正解"
-        }
-
-        else  if(ramdomNumber<val){
-        message.textContent="大きい"
-        }
         
-        else{
+        }else  if(ramdomNumber<val){
+        message.textContent="大きい"
+        
+        
+        }else{
             message.textContent="小さい"
         }
         count++;
